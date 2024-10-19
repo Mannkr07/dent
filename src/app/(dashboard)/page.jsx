@@ -4,20 +4,11 @@ import React from 'react'
 import { useState } from 'react'
 
 import {
-  Area,
-  AreaChart,
   Bar,
   BarChart,
   CartesianGrid,
-  Label,
-  LabelList,
   Line,
   LineChart,
-  PolarAngleAxis,
-  RadialBar,
-  RadialBarChart,
-  Rectangle,
-  ReferenceLine,
   XAxis,
   YAxis,
   ResponsiveContainer,
@@ -27,17 +18,9 @@ import {
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "../../components/ui/card"
-
-import {
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
-} from "../../components/ui/chart"
 
 import { Button } from "../../components/ui/button"
 
