@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import {
     Badge,
@@ -23,8 +24,15 @@ import {
   import { Sheet, SheetContent, SheetTrigger } from "../../components/ui/sheet"
   import { Button } from "../../components/ui/button";
   import Link from "next/link";
+import { doLogout } from '../../app/actions';
+import { useRouter } from 'next/navigation'
 
 const SearchBar = () => {
+    const router = useRouter();
+    const handleClick = () => {
+        doLogout();
+        router.push("/login");
+    }
   return (
     <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
         <Sheet>
@@ -109,12 +117,14 @@ const SearchBar = () => {
             </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-            <DropdownMenuLabel>My Account</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>Settings</DropdownMenuItem>
-            <DropdownMenuItem>Support</DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>Logout</DropdownMenuItem>
+                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>Settings</DropdownMenuItem>
+                <DropdownMenuItem>Support</DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onClick={handleClick}>
+                    Logout
+                </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>
     </header>
