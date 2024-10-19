@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "../components/ui/button"
 import {
   Card,
@@ -9,11 +10,32 @@ import {
 } from "../components/ui/card"
 import { Input } from "../components/ui/input"
 import { Label } from "../components/ui/label"
+import { doCredentialLogin } from "../app/actions";
+import { useRouter } from "next/navigation";
 
 export const description =
   "A simple login form with email and password. The submit button says 'Sign in'."
 
 export function LoginForm() {
+
+  const router = useRouter();
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const formData = new FormData(e.target);
+      const response = await doCredentialLogin(formData);
+
+      if(!!response.error) {
+        console.error(response.error);
+      } else {
+        router.push("/");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return (
     <Card className="w-full max-w-sm">
       <CardHeader>
@@ -22,19 +44,21 @@ export function LoginForm() {
           Enter your email below to login to your account.
         </CardDescription>
       </CardHeader>
-      <CardContent className="grid gap-4">
-        <div className="grid gap-2">
-          <Label htmlFor="email">Email</Label>
-          <Input id="email" type="email" placeholder="m@example.com" required />
-        </div>
-        <div className="grid gap-2">
-          <Label htmlFor="password">Password</Label>
-          <Input id="password" type="password" required />
-        </div>
-      </CardContent>
-      <CardFooter>
-        <Button className="w-full">Sign in</Button>
-      </CardFooter>
+      <form onSubmit={handleFormSubmit}>
+        <CardContent className="grid gap-4">
+            <div className="grid gap-2">
+              <Label htmlFor="email">Email</Label>
+              <input id="email" type="email" name="email" placeholder="m@example.com" required />
+            </div>
+            <div className="grid gap-2">
+              <Label htmlFor="password">Password</Label>
+              <input id="password" type="password" name="password" required />
+            </div>
+        </CardContent>
+        <CardFooter>
+          <Button className="w-full">Sign in</Button>
+        </CardFooter>
+      </form>
     </Card>
   )
 }

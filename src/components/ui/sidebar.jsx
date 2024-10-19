@@ -22,7 +22,7 @@ import { Button } from "../../components/ui/button"
 import { useParams, usePathname, useRouter } from 'next/navigation'
 import { cn } from '../../lib/utils'
 
-const Sidebar = () => {
+const Sidebar = ({ session }) => {
     const pathName = usePathname();
     console.log(pathName)
   return (
@@ -50,16 +50,18 @@ const Sidebar = () => {
                 <div className='uppercase font-semibold text-xs text-muted-foreground py-4'>
                     Clinic
                 </div>
-                <Link
-                href="/reservation"
-                className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/reservation" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold hover:bg-blue-100/50")}
-                >
-                    <CalendarCheck className="h-4 w-4" />
-                        Reservation
-                    <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
-                        6
-                    </Badge>
-                </Link>
+                {session?.user?.role === "admin" && (
+                    <Link
+                    href="/reservation"
+                    className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/reservation" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold hover:bg-blue-100/50")}
+                    >
+                        <CalendarCheck className="h-4 w-4" />
+                            Reservation
+                        <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
+                            6
+                        </Badge>
+                    </Link>
+                )}
                 <Link
                 href="/patients-list"
                 className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/patients-list" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold hover:bg-blue-100/50")}
