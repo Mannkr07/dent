@@ -24,7 +24,6 @@ import { cn } from '../../lib/utils'
 
 const Sidebar = ({ session }) => {
     const pathName = usePathname();
-    console.log(pathName)
   return (
     <div className="hidden border-r bg-muted/40 md:block">
         <div className="flex h-full max-h-screen flex-col gap-2">
@@ -50,7 +49,7 @@ const Sidebar = ({ session }) => {
                 <div className='uppercase font-semibold text-xs text-muted-foreground py-4'>
                     Clinic
                 </div>
-                {session?.user?.role === "admin" && (
+                {session?.user?.email === "admin@dent.com" && (
                     <Link
                     href="/reservation"
                     className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/reservation" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold hover:bg-blue-100/50")}
