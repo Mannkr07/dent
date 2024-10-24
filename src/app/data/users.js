@@ -13,6 +13,16 @@ const users = [
       email: "doctor002@dent.com",
       password: "doctor002",
       role: "doctor"
+  },
+  {
+      email: "patient001@dent.com",
+      password: "patient001",
+      role: "patient"
+  },
+  {
+    email: "receptionist@dent.com",
+    password: "reception001",
+    role: "reception"
   }
 ]
 
