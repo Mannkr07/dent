@@ -2,7 +2,7 @@ import dbConnect from "../../../dbConfig/dbConfig";
 import Appointment from "../../../models/appointment";
 
 // Connect to the database before handling requests
-await dbConnect();
+dbConnect();
 
 // Handle GET requests
 export async function GET(req) {
@@ -41,8 +41,8 @@ export async function POST(req) {
 export async function PUT(req) {
   try {
     const data = await req.json();
-    const { id } = data;
-    const appointment = await Appointment.findByIdAndUpdate(id, data, {
+    const { _id, ...updatedData } = data;
+    const appointment = await Appointment.findByIdAndUpdate(_id, updatedData, {
       new: true,
       runValidators: true,
     });

@@ -94,7 +94,7 @@ const AddPatientModal = ({
         >
           <option value="Registered">Registered</option>
           <option value="Finished">Finished</option>
-          <option value="Encounter">Ongoing</option>
+          <option value="Ongoing">Ongoing</option>
         </select>
 
         <div className="flex justify-end">
