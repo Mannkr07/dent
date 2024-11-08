@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation"
 const PatientList = () => {
   const router = useRouter();
   return (
-    <div className="container mx-auto p-6">
+    <div className="container mx-auto p-6 dark:bg-black">
       <div className="flex items-center justify-between mb-6">
         <div className="flex space-x-4">
           <Button variant="link" className="text-blue-600 font-semibold">Active Treatment</Button>
@@ -23,20 +23,20 @@ const PatientList = () => {
         </div>
       </div>
       <div className="flex justify-between items-center mb-4">
-        <Button variant="outline" className="text-gray-600">
+        <Button variant="outline" className="text-gray-600 dark:text-white">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 mr-2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
           Filters
         </Button>
         <div className="flex space-x-2">
           <div className="flex space-x-2">
-            <Button variant="outline" size="icon" className="text-gray-600">
+            <Button variant="outline" size="icon" className="text-gray-600 dark:text-white">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
             </Button>
-            <Button variant="outline" size="icon" className="text-blue-600 bg-blue-50">
+            <Button variant="outline" size="icon" className="text-gray-600 dark:text-white ">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><line x1="8" x2="21" y1="6" y2="6"/><line x1="8" x2="21" y1="12" y2="12"/><line x1="8" x2="21" y1="18" y2="18"/><line x1="3" x2="3.01" y1="6" y2="6"/><line x1="3" x2="3.01" y1="12" y2="12"/><line x1="3" x2="3.01" y1="18" y2="18"/></svg>
             </Button>
           </div>
-          <Button className="bg-blue-600 text-white">
+          <Button className="bg-blue-600 hover:bg-blue-600 text-white">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 mr-2"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
             Add Patient
           </Button>
@@ -59,7 +59,7 @@ const PatientList = () => {
             <TableRow key={patient.name} onClick={() => router.push("/patients")}>
       
                 <TableCell className="font-medium">
-                  <div className="flex items-center">
+                  <div className="flex items-center dark:text-white">
                     <Avatar className="h-8 w-8 mr-2">
                       <AvatarImage src={patient.avatar} />
                       <AvatarFallback>{patient.initials}</AvatarFallback>
@@ -69,21 +69,21 @@ const PatientList = () => {
                 </TableCell>
                 
                 <TableCell>
-                  <div className="flex items-center">
+                  <div className="flex items-center dark:text-white">
                     <Phone className="h-4 w-4 mr-2 text-gray-400" />
                     {patient.phone}
                   </div>
                 </TableCell>
                 <TableCell>
-                  <div className="flex items-center">
+                  <div className="flex items-center dark:text-white">
                     <Mail className="h-4 w-4 mr-2 text-gray-400" />
                     {patient.email}
                   </div>
                 </TableCell>
-                <TableCell>{patient.address}</TableCell>
-                <TableCell>{patient.registered}</TableCell>
-                <TableCell>{patient.lastVisit}</TableCell>
-                <TableCell>{patient.lastTreatment}</TableCell>
+                <TableCell className="dark:text-white">{patient.address}</TableCell>
+                <TableCell className="dark:text-white">{patient.registered}</TableCell>
+                <TableCell className="dark:text-white">{patient.lastVisit}</TableCell>
+                <TableCell className="dark:text-white">{patient.lastTreatment}</TableCell>
               
             </TableRow>
           ))}

@@ -25,7 +25,8 @@ import {
   import { Button } from "../../components/ui/button";
   import Link from "next/link";
 import { doLogout } from '../../app/actions';
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation';
+import ModeToggle from './mode'
 
 const SearchBar = () => {
     const router = useRouter();
@@ -34,7 +35,7 @@ const SearchBar = () => {
         router.push("/login");
     }
   return (
-    <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
+    <header className="flex h-14 items-center gap-4 border-b bg-muted/40 dark:bg-black px-4 lg:h-[60px] lg:px-6">
         <Sheet>
             <SheetTrigger asChild>
             <Button
@@ -108,7 +109,7 @@ const SearchBar = () => {
             </div>
             </form>
         </div>
-        {/* <ModeToggle /> */}
+        <ModeToggle />
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
             <Button variant="secondary" size="icon" className="rounded-full">

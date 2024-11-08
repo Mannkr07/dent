@@ -48,119 +48,121 @@ const Payment = () =>  {
   };
 
   return (
-    <Card className="w-full space-w-md mx-auto">
-      <CardHeader>
-        <CardTitle>Payment Method</CardTitle>
-        <CardDescription>Choose your preferred payment method</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <form onSubmit={handleSubmit}>
-          <RadioGroup
-            value={paymentMethod}
-            onValueChange={setPaymentMethod}
-            className="grid grid-cols-1 gap-4 mb-6"
-          >
-            <div>
-              <RadioGroupItem value="credit_card" id="credit_card" className="peer sr-only" />
-              <Label
-                htmlFor="credit_card"
-                className="flex items-center justify-between w-full p-4 border rounded-md cursor-pointer peer-checked:border-primary"
-              >
-                <div className="flex items-center">
-                  <CreditCard className="w-6 h-6 mr-3" />
-                  <span>Credit Card</span>
-                </div>
-              </Label>
-            </div>
-            <div>
-              <RadioGroupItem value="cash" id="cash" className="peer sr-only" />
-              <Label
-                htmlFor="cash"
-                className="flex items-center justify-between w-full p-4 border rounded-md cursor-pointer peer-checked:border-primary"
-              >
-                <div className="flex items-center">
-                  <Banknote className="w-6 h-6 mr-3" />
-                  <span>Cash</span>
-                </div>
-              </Label>
-            </div>
-            <div>
-              <RadioGroupItem value="insurance" id="insurance" className="peer sr-only" />
-              <Label
-                htmlFor="insurance"
-                className="flex items-center justify-between w-full p-4 border rounded-md cursor-pointer peer-checked:border-primary"
-              >
-                <div className="flex items-center">
-                  <Building className="w-6 h-6 mr-3" />
-                  <span>Insurance</span>
-                </div>
-              </Label>
-            </div>
-          </RadioGroup>
-
-          {paymentMethod === 'credit_card' && (
-            <div className="space-y-4">
-              <div className="grid w-full items-center gap-1.5">
-                <Label htmlFor="cardNumber">Card Number</Label>
-                <Input
-                  type="text"
-                  id="cardNumber"
-                  placeholder="1234 5678 9012 3456"
-                  value={cardNumber}
-                  onChange={(e) => setCardNumber(e.target.value)}
-                  maxLength={16}
-                />
+    <div className='h-screen dark:bg-black'>
+      <Card className="w-full space-w-md mx-auto">
+        <CardHeader>
+          <CardTitle>Payment Method</CardTitle>
+          <CardDescription>Choose your preferred payment method</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <form onSubmit={handleSubmit}>
+            <RadioGroup
+              value={paymentMethod}
+              onValueChange={setPaymentMethod}
+              className="grid grid-cols-1 gap-4 mb-6"
+            >
+              <div>
+                <RadioGroupItem value="credit_card" id="credit_card" className="peer sr-only" />
+                <Label
+                  htmlFor="credit_card"
+                  className="flex items-center justify-between w-full p-4 border rounded-md cursor-pointer peer-checked:border-primary"
+                >
+                  <div className="flex items-center">
+                    <CreditCard className="w-6 h-6 mr-3" />
+                    <span>Credit Card</span>
+                  </div>
+                </Label>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div>
+                <RadioGroupItem value="cash" id="cash" className="peer sr-only" />
+                <Label
+                  htmlFor="cash"
+                  className="flex items-center justify-between w-full p-4 border rounded-md cursor-pointer peer-checked:border-primary"
+                >
+                  <div className="flex items-center">
+                    <Banknote className="w-6 h-6 mr-3" />
+                    <span>Cash</span>
+                  </div>
+                </Label>
+              </div>
+              <div>
+                <RadioGroupItem value="insurance" id="insurance" className="peer sr-only" />
+                <Label
+                  htmlFor="insurance"
+                  className="flex items-center justify-between w-full p-4 border rounded-md cursor-pointer peer-checked:border-primary"
+                >
+                  <div className="flex items-center">
+                    <Building className="w-6 h-6 mr-3" />
+                    <span>Insurance</span>
+                  </div>
+                </Label>
+              </div>
+            </RadioGroup>
+
+            {paymentMethod === 'credit_card' && (
+              <div className="space-y-4">
                 <div className="grid w-full items-center gap-1.5">
-                  <Label htmlFor="expiryDate">Expiry Date</Label>
+                  <Label htmlFor="cardNumber">Card Number</Label>
                   <Input
                     type="text"
-                    id="expiryDate"
-                    placeholder="MM/YY"
-                    value={expiryDate}
-                    onChange={(e) => setExpiryDate(e.target.value)}
-                    maxLength={5}
+                    id="cardNumber"
+                    placeholder="1234 5678 9012 3456"
+                    value={cardNumber}
+                    onChange={(e) => setCardNumber(e.target.value)}
+                    maxLength={16}
                   />
                 </div>
-                <div className="grid w-full items-center gap-1.5">
-                  <Label htmlFor="cvv">CVV</Label>
-                  <Input
-                    type="text"
-                    id="cvv"
-                    placeholder="123"
-                    value={cvv}
-                    onChange={(e) => setCvv(e.target.value)}
-                    maxLength={3}
-                  />
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="grid w-full items-center gap-1.5">
+                    <Label htmlFor="expiryDate">Expiry Date</Label>
+                    <Input
+                      type="text"
+                      id="expiryDate"
+                      placeholder="MM/YY"
+                      value={expiryDate}
+                      onChange={(e) => setExpiryDate(e.target.value)}
+                      maxLength={5}
+                    />
+                  </div>
+                  <div className="grid w-full items-center gap-1.5">
+                    <Label htmlFor="cvv">CVV</Label>
+                    <Input
+                      type="text"
+                      id="cvv"
+                      placeholder="123"
+                      value={cvv}
+                      onChange={(e) => setCvv(e.target.value)}
+                      maxLength={3}
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-          )}
+            )}
 
-          {error && (
-            <Alert variant="destructive" className="mt-4">
-              <AlertCircle className="h-4 w-4" />
-              <AlertTitle>Error</AlertTitle>
-              <AlertDescription>{error}</AlertDescription>
-            </Alert>
-          )}
+            {error && (
+              <Alert variant="destructive" className="mt-4">
+                <AlertCircle className="h-4 w-4" />
+                <AlertTitle>Error</AlertTitle>
+                <AlertDescription>{error}</AlertDescription>
+              </Alert>
+            )}
 
-          {success && (
-            <Alert className="mt-4">
-              <AlertCircle className="h-4 w-4" />
-              <AlertTitle>Success</AlertTitle>
-              <AlertDescription>Payment processed successfully!</AlertDescription>
-            </Alert>
-          )}
-        </form>
-      </CardContent>
-      <CardFooter>
-        <Button className="w-full" onClick={handleSubmit}>
-          Process Payment
-        </Button>
-      </CardFooter>
-    </Card>
+            {success && (
+              <Alert className="mt-4">
+                <AlertCircle className="h-4 w-4" />
+                <AlertTitle>Success</AlertTitle>
+                <AlertDescription>Payment processed successfully!</AlertDescription>
+              </Alert>
+            )}
+          </form>
+        </CardContent>
+        <CardFooter>
+          <Button className="w-full" onClick={handleSubmit}>
+            Process Payment
+          </Button>
+        </CardFooter>
+      </Card>
+    </div>
   );
 }
 export default Payment

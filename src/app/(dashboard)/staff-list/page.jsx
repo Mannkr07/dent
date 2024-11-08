@@ -80,7 +80,7 @@ const doctors = [
 
 const StaffList = () => {
   return (
-    <div className="w-full mx-auto p-4 bg-white rounded-lg shadow">
+    <div className="w-full h-screen mx-auto p-4 bg-white dark:bg-black rounded-lg shadow">
       <div className="flex justify-between items-center mb-6">
         <div className="space-x-4">
           <Button variant="link" className="text-blue-600 font-semibold">
@@ -116,8 +116,8 @@ const StaffList = () => {
         </TableHeader>
         <TableBody>
           {doctors.map((doctor) => (
-            <TableRow key={doctor.name}>
-              <TableCell className="font-medium">
+            <TableRow key={doctor.name} className="dark:text-white">
+              <TableCell className="font-medium dark:text-white">
                 <div className="flex items-center space-x-3">
                   <Input type="checkbox" className="w-4 h-4" />
                   <img

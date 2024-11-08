@@ -16,7 +16,7 @@ const treatments = [
 
 const Treatment = () => {
   return (
-    <div className="w-full space-w-4xl mx-auto p-4 bg-white">
+    <div className="w-full h-screen space-w-4xl mx-auto p-4 bg-white dark:bg-black">
       <div className="flex items-center justify-between mb-4">
         <div className="flex space-x-4">
           <Button variant="link" className="text-blue-600 font-semibold">Active Treatment</Button>
@@ -61,7 +61,7 @@ const Treatment = () => {
           </thead>
           <tbody>
             {treatments.map((treatment, index) => (
-              <tr key={index} className="border-b">
+              <tr key={index} className="border-b dark:text-white">
                 <td className="p-2">
                   <Input type="checkbox" className="w-4 h-4" />
                 </td>
@@ -77,7 +77,7 @@ const Treatment = () => {
                     <span className="font-semibold">SAR {treatment.price}</span>
                   </div>
                 </td>
-                <td className="p-2 text-gray-700">{treatment.duration}</td>
+                <td className="p-2 text-gray-700 dark:text-white">{treatment.duration}</td>
                 <td className="p-2">
                   <span className={`px-2 py-1 rounded text-xs ${treatment.visitType === 'SINGLE VISIT' ? 'bg-green-100 text-green-800' : 'bg-purple-100 text-purple-800'}`}>
                     {treatment.visitType}
@@ -85,15 +85,15 @@ const Treatment = () => {
                 </td>
                 <td className="p-2">
                   {treatment.rating ? (
-                    <div className="flex items-center space-x-1">
+                    <div className="flex items-center space-x-1 dark:text-white">
                       <Star className="w-4 h-4 text-yellow-400 fill-current" />
                       <span>{treatment.rating}</span>
                     </div>
                   ) : (
-                    <span className="text-gray-500">No Rating</span>
+                    <span className="text-gray-500 dark:text-white">No Rating</span>
                   )}
                 </td>
-                <td className="p-2 text-gray-700">{treatment.reviews} Review(s)</td>
+                <td className="p-2 text-gray-700 dark:text-white">{treatment.reviews} Review(s)</td>
                 <td className="p-2">
                   <Button variant="ghost" size="icon">
                     <MoreVertical className="w-4 h-4" />

@@ -19,21 +19,21 @@ import {
 } from "lucide-react"
 import { Badge } from "../../components/ui/badge"
 import { Button } from "../../components/ui/button"
-import { useParams, usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { cn } from '../../lib/utils'
 
 const Sidebar = ({ session }) => {
     const pathName = usePathname();
   return (
-    <div className="hidden border-r bg-muted/40 md:block">
+    <div className="hidden border-r bg-muted/40 dark:bg-black md:block">
         <div className="flex h-full max-h-screen flex-col gap-2">
             <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
                 <div className="flex items-center gap-2 font-semibold">
-                    <Package2 className="h-6 w-6" />
-                    <span className="">DentFlow</span>
+                    <Package2 className="h-6 w-6 dark:text-white" />
+                    <span className="dark:text-white">DentFlow</span>
                 </div>
                 <Button variant="outline" size="icon" className="ml-auto h-8 w-8">
-                    <Bell className="h-4 w-4" />
+                    <Bell className="h-4 w-4 dark:text-white" />
                     <span className="sr-only">Toggle notifications</span>
                 </Button>
             </div>
@@ -44,7 +44,7 @@ const Sidebar = ({ session }) => {
                     
                         <Link
                         href="/dashboard"
-                        className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/dashboard" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold hover:bg-blue-100/50")}
+                        className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/dashboard" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold")}
                         >
                         <LayoutDashboard  className="h-4 w-4" />
                             Dashboard
@@ -55,31 +55,29 @@ const Sidebar = ({ session }) => {
                         
                         <Link
                         href="/reservation"
-                        className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/reservation" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold hover:bg-blue-100/50")}
+                        className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/reservation" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold")}
                         >
                             <CalendarCheck className="h-4 w-4" />
                                 Reservation
-                            <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
-                                6
-                            </Badge>
+                            
                         </Link>                      
                         <Link
                         href="/patients-list"
-                        className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/patients-list" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold hover:bg-blue-100/50")}
+                        className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/patients-list" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold ")}
                         >
                         <CircleUserRound className="h-4 w-4" />
                             Patients{" "}
                         </Link>
                         <Link
                         href="/treatment"
-                        className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/treatment" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold hover:bg-blue-100/50")}
+                        className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/treatment" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold ")}
                         >
                         <Stethoscope className="h-4 w-4" />
                             Treatments
                         </Link>
                         <Link
                         href="/staff-list"
-                        className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/staff-list" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold hover:bg-blue-100/50")}
+                        className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/staff-list" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold ")}
                         >
                         <Users className="h-4 w-4" />
                             Staff List
@@ -90,28 +88,28 @@ const Sidebar = ({ session }) => {
                         </div>
                         <Link
                         href="/account"
-                        className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/account" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold hover:bg-blue-100/50")}
+                        className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/account" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold ")}
                         >
                             <IdCard className='h-4 w-4'/>
                             Accounts
                         </Link>
                         <Link
                         href="/sales"
-                        className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/sales" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold hover:bg-blue-100/50")}
+                        className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/sales" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold ")}
                         >
                             <ChartColumnBig className='h-4 w-4'/>
                             Sales
                         </Link>
                         <Link
                         href="#"
-                        className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/purchases" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold hover:bg-blue-100/50")}
+                        className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/purchases" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold ")}
                         >
                             <TicketCheck  className='h-4 w-4'/>
                             Purchases
                         </Link>
                         <Link
                         href="payment"
-                        className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/payment" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold hover:bg-blue-100/50")}
+                        className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/payment" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold ")}
                         >
                             <CreditCard  className='h-4 w-4'/>
                             Payment Method
@@ -122,7 +120,7 @@ const Sidebar = ({ session }) => {
                         </div>
                         <Link
                         href="/stocks"
-                        className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/stocks" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold hover:bg-blue-100/50")}
+                        className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/stocks" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold")}
                         >
                             <PillBottle  className='h-4 w-4'/>
                             Medicine Stocks
@@ -132,14 +130,14 @@ const Sidebar = ({ session }) => {
                         </div>
                         <Link
                         href="#"
-                        className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/report" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold hover:bg-blue-100/50")}
+                        className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/report" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold ")}
                         >
                             <ClipboardPlus className='h-4 w-4'/>
                             Report
                         </Link>
                         <Link
                         href="/support"
-                        className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/support" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold hover:bg-blue-100/50")}
+                        className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/support" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold ")}
                         >
                             <Headset className='h-4 w-4'/>
                             Customer Support
@@ -154,14 +152,14 @@ const Sidebar = ({ session }) => {
                             </div>                   
                             <Link
                             href="/patients-list"
-                            className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/patients-list" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold hover:bg-blue-100/50")}
+                            className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/patients-list" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold ")}
                             >
                             <CircleUserRound className="h-4 w-4" />
                                 Patients{" "}
                             </Link>
                             <Link
                             href="/treatment"
-                            className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/treatment" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold hover:bg-blue-100/50")}
+                            className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/treatment" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold ")}
                             >
                             <Stethoscope className="h-4 w-4" />
                                 Treatments
@@ -173,7 +171,7 @@ const Sidebar = ({ session }) => {
                 {(session?.user?.email === "receptionist@dent.com" && (
                     <Link
                     href="/reservation"
-                    className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/reservation" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold hover:bg-blue-100/50")}
+                    className={cn("flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all  hover:text-primary hover:bg-muted", pathName === "/reservation" && "text-blue-600 font-bold bg-blue-100 hover:text-blue-600 hover:font-bold ")}
                     >
                         <CalendarCheck className="h-4 w-4" />
                             Reservation
