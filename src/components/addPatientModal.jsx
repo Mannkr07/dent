@@ -57,7 +57,7 @@ const AddPatientModal = ({
       }`}
     >
       <div className="bg-white p-4 rounded shadow-lg w-1/3">
-        <h2 className="text-xl font-bold mb-4">
+        <h2 className="text-xl font-bold mb-4 dark:text-black">
           {editingAppointment ? "Edit" : "Add"} Patient for{" "}
           {doctor ? doctor.name : "Selected Doctor"}
         </h2>
