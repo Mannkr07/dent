@@ -12,7 +12,7 @@ import {
 
 const stocks = () => {
   return (
-    <div className="w-full space-w-6xl mx-auto p-6 space-y-6">
+    <div className="w-full space-w-6xl mx-auto p-6 space-y-6 dark:bg-black h-screen dark:text-white">
       <div className="flex justify-between items-start">
         <div className="flex items-center space-x-4">
           <div className="bg-blue-100 rounded-full p-3">
@@ -36,7 +36,7 @@ const stocks = () => {
         </div>
         <div className="p-2 md:w-1/2">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-2xl font-bold text-gray-800">32 Product</h2>
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-white">32 Product</h2>
         </div>
         <div className="w-full bg-gray-200 rounded-full h-2.5 mb-4 relative">
          <div className="bg-teal-400 h-2.5 rounded-full absolute top-0 left-0" style={{ width: '25%' }}></div>
@@ -47,17 +47,17 @@ const stocks = () => {
         <div className="flex justify-between text-sm">
           <div className="flex items-center">
             <div className="w-3 h-3 rounded-full bg-teal-400 mr-2"></div>
-            <span className="text-gray-600">In stock:</span>
+            <span className="text-gray-600 dark:text-white">In stock:</span>
             <span className="font-medium ml-1">20</span>
           </div>
           <div className="flex items-center">
             <div className="w-3 h-3 rounded-full bg-orange-400 mr-2"></div>
-            <span className="text-gray-600">Low stock:</span>
+            <span className="text-gray-600 dark:text-white">Low stock:</span>
             <span className="font-medium ml-1">8</span>
           </div>
           <div className="flex items-center">
             <div className="w-3 h-3 rounded-full bg-red-400 mr-2"></div>
-            <span className="text-gray-600">Out of stock:</span>
+            <span className="text-gray-600 dark:text-white">Out of stock:</span>
             <span className="font-medium ml-1">4</span>
           </div>
         </div>
