@@ -126,9 +126,9 @@ const ReservationTable = () => {
           <Button variant="link" className="text-blue-600 font-semibold">
             Calendar
           </Button>
-          <Button variant="link" className="text-gray-400">
+          {/* <Button variant="link" className="text-gray-400">
             Log History
-          </Button>
+          </Button> */}
         </div>
         <div className="flex items-center space-x-2">
           <CalendarIcon className="text-gray-400" />
@@ -149,12 +149,6 @@ const ReservationTable = () => {
           <span className="font-semibold">{selectedDate}</span>
         </div>
         <div className="flex items-center space-x-2">
-          <Button variant="ghost" size="sm">
-            Day
-          </Button>
-          <Button variant="ghost" size="sm">
-            Week
-          </Button>
           <Select
             value={selectedDoctorFilter}
             onValueChange={setSelectedDoctorFilter}
@@ -174,10 +168,6 @@ const ReservationTable = () => {
               ))}
             </SelectContent>
           </Select>
-          <Button variant="outline" className="flex items-center space-x-2">
-            <AlertCircle className="w-4 h-4" />
-            <span>Filters</span>
-          </Button>
         </div>
       </div>
 
