@@ -71,12 +71,12 @@ const lineChartData = [
 const Charts = () => {
   const [hoveredValue, setHoveredValue] = useState(null)
   return (
-    <div className="chart-wrapper flex flex-col items-start justify-center gap-6 p-6 sm:p-8">
+    <div className="chart-wrapper flex flex-col items-start justify-center gap-6 p-6 sm:p-8 dark:bg-black">
       <div className='space-y-2'>
-        <div className='font-bold text-2xl'>
+        <div className='font-bold text-2xl dark:text-white'>
           Good Morning, Mann!
         </div>
-        <div>
+        <div className='dark:text-white'>
           Wednesday, September 20, 2024
         </div>
       </div>
@@ -150,11 +150,11 @@ const Charts = () => {
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-2xl font-bold">Income & Expense</CardTitle>
                 <Select defaultValue="this-month">
-                  <SelectTrigger className="w-[140px] border-0 bg-gray-100 text-gray-600">
+                  <SelectTrigger className="w-[140px] border-0 bg-gray-100 dark:bg-black dark:border text-gray-600 dark:text-foreground">
                     <SelectValue placeholder="This month" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="this-month">6 month</SelectItem>
+                    <SelectItem value="this-month" >6 month</SelectItem>
                     <SelectItem value="last-month">3 month</SelectItem>
                     <SelectItem value="this-year">1 month</SelectItem>
                   </SelectContent>
@@ -167,7 +167,7 @@ const Charts = () => {
                       <span className="w-3 h-3 bg-green-400 rounded-full mr-2"></span>
                       TOTAL INCOME
                     </p>
-                    <p className="text-3xl font-bold text-gray-800">SAR 1,412</p>
+                    <p className="text-3xl font-bold text-gray-800 dark:text-muted-foreground">SAR 1,412</p>
                     <p className="text-sm font-medium text-green-500">▲ 4.51%</p>
                   </div>
                   <div>
@@ -175,7 +175,7 @@ const Charts = () => {
                       <span className="w-3 h-3 bg-yellow-400 rounded-full mr-2"></span>
                       TOTAL EXPENSES
                     </p>
-                    <p className="text-3xl font-bold text-gray-800">SAR 612.34</p>
+                    <p className="text-3xl font-bold text-gray-800 dark:text-muted-foreground">SAR 612.34</p>
                     <p className="text-sm font-medium text-red-500">▼ 2.41%</p>
                   </div>
                 </div>
@@ -197,7 +197,7 @@ const Charts = () => {
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-2xl font-bold">Patients</CardTitle>
                   <Select defaultValue="this-month">
-                    <SelectTrigger className="w-[140px] border-0 bg-gray-100 text-gray-600">
+                    <SelectTrigger className="w-[140px] border-0 bg-gray-100 dark:bg-black text-gray-600 dark:text-white">
                       <SelectValue placeholder="This month" />
                     </SelectTrigger>
                     <SelectContent>
@@ -212,16 +212,16 @@ const Charts = () => {
                     <div className="space-y-2">
                       <p className="text-4xl font-bold">21</p>
                       <div>
-                        <p className="text-xl font-semibold text-gray-600">36.52%</p>
-                        <p className="text-sm text-gray-500">New patients</p>
+                        <p className="text-xl font-semibold text-gray-600 dark:text-white">36.52%</p>
+                        <p className="text-sm text-gray-500 dark:text-muted-foreground">New patients</p>
                       </div>
                       <div className="h-2 w-full bg-blue-200" />
                     </div>
                     <div className="space-y-2">
                       <p className="text-4xl font-bold">142</p>
                       <div>
-                        <p className="text-xl font-semibold text-gray-600">61.41%</p>
-                        <p className="text-sm text-gray-500">Returning patients</p>
+                        <p className="text-xl font-semibold text-gray-600 dark:text-white">61.41%</p>
+                        <p className="text-sm text-gray-500 dark:text-muted-foreground">Returning patients</p>
                       </div>
                       <div className="flex space-x-0.5">
                         {Array(61).fill(0).map((_, i) => (
@@ -232,11 +232,11 @@ const Charts = () => {
                   </div>
                 </CardContent>
               </Card>
-              <Card className="w-full max-w-md">
+              <Card className="w-full max-w-md ">
                 <CardHeader>
-                  <CardTitle className="text-2xl font-bold text-[#2D3648]">Popular Treatment</CardTitle>
+                  <CardTitle className="text-2xl font-bold text-[#2D3648] dark:text-white">Popular Treatment</CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 ">
                   {[
                     { name: "Scaling Teeth", rating: 4.7 },
                     { name: "Tooth Extraction", rating: 4.4 },
@@ -245,11 +245,11 @@ const Charts = () => {
                     <div key={index} className="flex items-center justify-between">
                       <div className="flex items-center space-x-3">
                         <div className="w-1 h-6 bg-gray-300 rounded"></div>
-                        <span className="text-lg text-[#4B5563]">{treatment.name}</span>
+                        <span className="text-lg text-[#4B5563] dark:text-muted-foreground">{treatment.name}</span>
                       </div>
                       <div className="flex items-center space-x-1">
                         <StarIcon className="w-5 h-5 text-[#F59E0B] fill-current" />
-                        <span className="text-lg font-semibold text-[#4B5563]">{treatment.rating}</span>
+                        <span className="text-lg font-semibold text-[#4B5563] dark:text-muted-foreground">{treatment.rating}</span>
                       </div>
                     </div>
                   ))}
@@ -324,28 +324,28 @@ const Charts = () => {
             <div className="mt-8 space-y-2">
               <div className="text-lg font-semibold text-gray-500">TOP EXPENSE</div>
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-gray-50 p-4 rounded-lg">
+                <div className="bg-gray-50 dark:bg-black p-4 rounded-lg border">
                   <div className="flex items-center space-x-2">
                     <div className="w-3 h-3 rounded-full bg-[#a78bfa]" />
                     <div className="text-sm text-gray-500">Rental Cost</div>
                   </div>
                   <div className="mt-2 text-2xl font-bold">SAR 26,000</div>
                 </div>
-                <div className="bg-gray-50 p-4 rounded-lg">
+                <div className="bg-gray-50 dark:bg-black p-4 rounded-lg border">
                   <div className="flex items-center space-x-2">
                     <div className="w-3 h-3 rounded-full bg-[#60a5fa]" />
                     <div className="text-sm text-gray-500">Wages</div>
                   </div>
                   <div className="mt-2 text-2xl font-bold">SAR 16,500</div>
                 </div>
-                <div className="bg-gray-50 p-4 rounded-lg">
+                <div className="bg-gray-50 dark:bg-black p-4 rounded-lg border">
                   <div className="flex items-center space-x-2">
                     <div className="w-3 h-3 rounded-full bg-[#4ade80]" />
                     <div className="text-sm text-gray-500">Medical Equipment</div>
                   </div>
                   <div className="mt-2 text-2xl font-bold">SAR 15,640</div>
                 </div>
-                <div className="bg-gray-50 p-4 rounded-lg">
+                <div className="bg-gray-50 dark:bg-black p-4 rounded-lg border">
                   <div className="flex items-center space-x-2">
                     <div className="w-3 h-3 rounded-full bg-[#f472b6]" />
                     <div className="text-sm text-gray-500">Supplies</div>
@@ -359,17 +359,17 @@ const Charts = () => {
          
           <Card className="w-full">
             <CardHeader>
-              <CardTitle className="text-2xl font-bold text-gray-800">Stock avability</CardTitle>
+              <CardTitle className="text-2xl font-bold text-gray-800 dark:text-white">Stock avability</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="flex justify-between">
                 <div>
                   <p className="text-lg text-gray-500">TOTAL ASSET</p>
-                  <p className="text-4xl font-bold text-gray-800">SAR 53,000</p>
+                  <p className="text-4xl font-bold text-gray-800 dark:text-white">SAR 53,000</p>
                 </div>
                 <div>
                   <p className="text-lg text-gray-500">TOTAL PRODUCT</p>
-                  <p className="text-4xl font-bold text-gray-800">442</p>
+                  <p className="text-4xl font-bold text-gray-800 dark:text-white">442</p>
                 </div>
               </div>
               <div className="flex h-2 overflow-hidden rounded-full bg-gray-200">
@@ -393,18 +393,18 @@ const Charts = () => {
               </div>
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <p className="text-lg font-semibold text-gray-700">LOW STOCK</p>
+                  <p className="text-lg font-semibold text-gray-700 dark:text-muted-foreground">LOW STOCK</p>
                   <a href="#" className="text-blue-600 hover:underline">View all</a>
                 </div>
                 <div className="space-y-2">
-                  <div className="flex items-center justify-between bg-gray-100 p-3 rounded-lg">
+                  <div className="flex items-center justify-between bg-gray-100 dark:bg-black border p-3 rounded-lg">
                     <p className="font-medium">Dental Brush</p>
                     <div className="flex items-center space-x-4">
                       <p>Qty: 3</p>
                       <Button variant="link" className="text-blue-600 p-0">Order</Button>
                     </div>
                   </div>
-                  <div className="flex items-center justify-between bg-gray-100 p-3 rounded-lg">
+                  <div className="flex items-center justify-between bg-gray-100 dark:bg-black border p-3 rounded-lg">
                     <p className="font-medium">Charmflex Regular</p>
                     <div className="flex items-center space-x-4">
                       <p>Qty: 2</p>
@@ -418,29 +418,6 @@ const Charts = () => {
         </div>
       </div>
     </div>
-  )
-}
-
-
-const Dashboard = () => {
-  return (
-    <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
-        <div className="flex items-center">
-          <h1 className="text-lg font-semibold md:text-2xl">Dashboard</h1>
-        </div>
-        <div
-          className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm" x-chunk="dashboard-02-chunk-1"
-        >
-          <div className="flex flex-col items-center gap-1 text-center">
-            <h3 className="text-2xl font-bold tracking-tight">
-              You have no products
-            </h3>
-            <p className="text-sm text-muted-foreground">
-              You can start selling as soon as you add a product.
-            </p>
-          </div>
-        </div>
-      </main>
   )
 }
 

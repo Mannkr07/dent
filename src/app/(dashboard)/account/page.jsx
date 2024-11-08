@@ -5,7 +5,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 
 export default function Component() {
   return (
-    <div className="w-full space-w-4xl mx-auto p-6 space-y-6">
+    <div className="w-full h-screen space-w-4xl mx-auto p-6 space-y-6 dark:bg-black">
       <div className="grid grid-cols-3 gap-4">
         <Card className="p-4">
           <div className="flex items-center space-x-2">
@@ -86,16 +86,16 @@ export default function Component() {
       <div className="space-y-4">
         <div className="flex justify-between items-center">
           <div>
-            <h2 className="text-xl font-bold">List Account</h2>
+            <h2 className="text-xl font-bold dark:text-white">List Account</h2>
             <p className="text-sm text-gray-500">All account setup manually</p>
           </div>
           <div className="space-x-2">
-            <Button variant="outline">Transfer money</Button>
+            <Button variant="outline" className="dark:text-white">Transfer money</Button>
             <Button>Add new account</Button>
           </div>
         </div>
         <Card>
-          <div className="p-4 border-b flex justify-between items-center">
+          <div className="p-4 border-b flex justify-between items-center ">
             <h3 className="font-semibold">ACTIVE LIST</h3>
             <ChevronDownIcon className="w-5 h-5" />
           </div>

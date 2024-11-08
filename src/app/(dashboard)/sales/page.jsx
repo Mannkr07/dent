@@ -12,7 +12,7 @@ const Sales = () => {
   const [activeTab, setActiveTab] = useState('Bill');
 
   return (
-    <div className="w-full space-w-6xl mx-auto p-4 space-y-4">
+    <div className="w-full space-w-6xl mx-auto p-4 space-y-4 dark:bg-black h-screen">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Card className="p-4 space-y-2">
           <div className="text-sm text-gray-500">Revenue this month</div>
@@ -40,7 +40,7 @@ const Sales = () => {
         </Button>
         <Button
           variant={activeTab === 'Payment Received' ? 'default' : 'ghost'}
-          className="rounded-none"
+          className="rounded-none dark:text-white"
           onClick={() => setActiveTab('Payment Received')}
         >
           Payment Received
@@ -51,7 +51,7 @@ const Sales = () => {
           <SearchIcon className="absolute left-2 top-2.5 h-4 w-4 text-gray-500" />
           <Input placeholder="Search name or reservation ID..." className="pl-8" />
         </div>
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2 dark:text-white">
           <Select defaultValue="1 May 2021 - 30 May 2021">
             <SelectTrigger className="w-[240px]">
               <CalendarIcon className="mr-2 h-4 w-4" />
@@ -91,7 +91,7 @@ const Sales = () => {
             { id: '#RSV002', name: 'Jane Cooper', bill: '2/2', date: '17/05/2022', amount: 'SAR 650', status: 'FULLY PAID' },
             { id: '#RSV001', name: 'Darrell Steward', bill: '2/2', date: '16/05/2022', amount: 'SAR 1,200', status: 'FULLY PAID' },
           ].map((row) => (
-            <TableRow key={row.id}>
+            <TableRow key={row.id} className="dark:text-white">
               <TableCell className="font-medium">{row.id}</TableCell>
               <TableCell>
                 <div className="flex items-center">
