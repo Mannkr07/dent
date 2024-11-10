@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import AddPatientModal from "../../../components/addPatientModal";
+import { Calendar } from "../../../components/ui/calendar";
+import { format } from "date-fns";
 import axios from "axios";
 import {
   Select,
@@ -11,6 +13,13 @@ import {
   SelectValue,
 } from "../../../components/ui/select";
 import { Button } from "../../../components/ui/button";
+
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "../../../components/ui/popover"
+
 import {
   ChevronLeft,
   ChevronRight,
@@ -19,7 +28,7 @@ import {
 } from "lucide-react";
 
 const ReservationTable = () => {
-  const [selectedDate, setSelectedDate] = useState("Fri, 16 May 2022");
+  const [selectedDate, setSelectedDate] = useState(new Date());
   const [doctors] = useState([
     { id: 1, name: "Drg Soap Mactavish" },
     { id: 2, name: "Drg Jerald O'Hara" },
@@ -127,9 +136,9 @@ const ReservationTable = () => {
             <Button variant="link" className="text-blue-600 font-semibold">
               Calendar
             </Button>
-            <Button variant="link" className="text-gray-400">
+            {/* <Button variant="link" className="text-gray-400">
               Log History
-            </Button>
+            </Button> */}
           </div>
           <div className="flex items-center space-x-2">
             <CalendarIcon className="text-gray-400" />
@@ -140,22 +149,36 @@ const ReservationTable = () => {
 
         <div className="flex justify-between items-center mb-4">
           <div className="flex items-center space-x-2">
-            <Button variant="outline">Today</Button>
-            <Button variant="ghost" size="icon">
-              <ChevronLeft />
-            </Button>
-            <Button variant="ghost" size="icon">
-              <ChevronRight />
-            </Button>
-            <span className="font-semibold">{selectedDate}</span>
+            {/* date picker */}
+            <Popover>
+              <PopoverTrigger className="">
+                <Button variant="outline" className="gap-4 flex items-center">
+                  {selectedDate ? (
+                    <span>
+                      {format(selectedDate, "PPP")}
+                    </span>
+                  ) : (
+                    <span>
+                      Select a date
+                    </span>
+                  )}
+                  <CalendarIcon className="w-5 h-5" />
+                </Button>
+              </PopoverTrigger>
+
+              <PopoverContent className="w-auto p-0" align="start">
+                <Calendar
+                  mode="single"
+                  selected={selectedDate}
+                  onSelect={setSelectedDate}
+                  className="rounded-md border"
+                />
+              </PopoverContent>
+            </Popover>
+            
           </div>
           <div className="flex items-center space-x-2">
-            <Button variant="ghost" size="sm">
-              Day
-            </Button>
-            <Button variant="ghost" size="sm">
-              Week
-            </Button>
+            
             <Select
               value={selectedDoctorFilter}
               onValueChange={setSelectedDoctorFilter}
