@@ -39,6 +39,7 @@ const ReservationTable = () => {
   ]);
 
   const [appointments, setAppointments] = useState([]);
+  const [totalAppointment, setTotalAppointment] = useState(0);
   const [selectedDoctorFilter, setSelectedDoctorFilter] = useState("all");
   const [selectedDoctor, setSelectedDoctor] = useState(null);
   const [selectedTimeSlot, setSelectedTimeSlot] = useState(null);
@@ -61,6 +62,13 @@ const ReservationTable = () => {
   const getAppointmentCount = (doctorId) => {
     return appointments.filter((appt) => appt.doctorId === doctorId).length;
   };
+  // Calculate total appointments for all doctors on the selected date
+  useEffect(() => {
+    const total = doctors.reduce((acc, doctor) => {
+      return acc + getAppointmentCount(doctor.id);
+    }, 0);
+    setTotalAppointment(total);
+  }, [appointments, selectedDate, doctors]);
 
   // Open the modal for a specific doctor and time slot
   const handleSlotClick = (doctor, timeSlot) => {
@@ -130,7 +138,7 @@ const ReservationTable = () => {
           </div>
           <div className="flex items-center space-x-2">
             <CalendarIcon className="text-gray-400" />
-            <span className="font-semibold">16</span>
+            <span className="font-semibold">{totalAppointment}</span>
             <span className="text-gray-500">total appointments</span>
           </div>
         </div>
